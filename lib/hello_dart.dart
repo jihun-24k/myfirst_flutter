@@ -14,6 +14,7 @@ class Queue{
     _MAX = 10000;
     _front = 0;
     _rear = 0;
+    // List.filled를 사용해야함
     _queue = new List();
   }
 
