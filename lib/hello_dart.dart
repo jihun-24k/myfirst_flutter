@@ -1,44 +1,57 @@
 void main(){
   Queue queue1 = new Queue();
-
-
 }
 
 class Queue{
   List<int> _queue;
   int _front;
   int _rear;
-  int _MAX;
 
-  Queue(){
-    _MAX = 10000;
+  Queue(int size){
     _front = 0;
     _rear = 0;
     // List.filled를 사용해야함
-    _queue = new List();
+    _queue = List.filled(size,0);
   }
 
-  void enqueue(int num){
-    List<int> list = _queue + [num];
+  void enqueue(int data){
+    if (isFull()){
+      print('Queue is Full!!');
+    }
+    else {
+      _queue[_rear++] = data;
+    }
   }
 
   int dequeue(){
-
+    int result = -1;
+    if (isEmpty()){
+      print('Queue is Empty!!');
+    }
+    else{
+      result = _queue[_front];
+      _queue[_front] = 0;
+      _front++;
+    }
+    return result;
   }
 
   int peek(){
-
+    int result = -1;
+    if (isEmpty()){
+      print('Queue is Empty!!');
+    }
+    else{
+      result = _queue[_front];
+    }
+    return result;
   }
 
   bool isEmpty(){
     return _front == _rear;
   }
 
-  bool isFull(){
-    if(_rear == _MAX - 1){
-      return true;
-    }else{
-      return false;
+  bool isFull() {
+    return _rear == _queue.length;
   }
-
 }
