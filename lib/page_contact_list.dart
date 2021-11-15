@@ -40,7 +40,7 @@ class _ContactListPageState extends State<ContactListPage>{
   Widget _buildRow(BuildContext context, int i){
     Contact c = _contacts.elementAt(i);
     return ListTile(
-      leading: (c.avatar! != null && c.avatar.length > 0)
+      leading: (c.avatar! != null && c.avatar!.length > 0)
           ? CircleAvatar(backgroundImage: MemoryImage(c.avatar!))
           : CircleAvatar(child: Text(c.initials())),
       title: Text(c.displayName ?? ""),
