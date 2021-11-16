@@ -7,7 +7,7 @@ import 'state_simple.dart';
 
 void main() => runApp(
   ChangeNotifierProvider(
-    builder: (context) => SimpleState(),
+    create: (context) => SimpleState(),
     child: StateLoginDemo(),
   ));
 
@@ -19,7 +19,7 @@ class StateLoginDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      titile: '로그인 폼',
+      title: '로그인 폼',
       debugShowCheckedModeBanner: false,
       initialRoute: ROOT_PAGE,
       routes: {

@@ -19,7 +19,7 @@ class LoginPageState extends State<LoginPage> {
   
   void _onLogin(BuildContext context) {
     final String email = _emailController.text;
-    final SimpleState state = Provider.of<SimpleState>(context);
+    final SimpleState state = Provider.of<SimpleState>(context, listen: false);
     state.setEmail(email);
     
     Navigator.pushNamed(context, MAIN_PAGE);
